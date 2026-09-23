@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especificação de Casos de Uso - Projeto Integrador</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: #1e293b;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .card-uc {
+            background: #ffffff;
+            border-left: 6px solid #2563eb;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .card-uc h2 {
+            color: #1d4ed8;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: #334155;
+            width: 30%;
+        }
+
+        h3 {
+            margin-top: 15px;
+            margin-bottom: 10px;
+            color: #334155;
+        }
+
+        ol {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: #f59e0b; /* Amarelo: Em Desenvolvimento */
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+        }
+
+        .resultado-caixa {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Recomendação de Restaurantes por I.A</h1>
+        <p>Documentação de Engenharia de Software - Especificação de Casos de Uso</p>
+    </header>
+
+    <main>
+        <!-- UC01 -->
+        <section class="card-uc">
+            <span class="status-badge" id="status">Em Elaboração</span>
+            <h2>UC01: Procurar estabelecimento</h2>
+
+            <table>
+                <tr>
+                    <th>Ator Principal</th>
+                    <td>Usuário</td>
+                </tr>
+                <tr>
+                    <th>Pré-condições</th>
+                    <td>Ter informado suas preferências</td>
+                </tr>
+                <tr>
+                    <th>Pós-condições</th>
+                    <td>Mostra restaurantes compatíveis às preferências pessoais ao usuário</td>
+                </tr>
+            </table>
+
+            <h3>Fluxo Principal de Ações:</h3>
+            <ol>
+                <li>O usuário acessa a funcionalidade de buscar estabelecimento.</li>
+                <li>O sistema apresenta o formulário solicitando o tipo de comida desejada.</li>
+                <li>O usuário preenche os campos e informa suas preferências à I.A.</li>
+                <li>O sistema valida os dados e envia para processamento.</li>
+                <li>O sistema lista os restaurantes compatíveis com o perfil.</li>
+            </ol>
+
+            <h3>Fluxo Alternativo:</h3>
+            <ol>
+                <li>[Passo 3a] O usuário deixa o campo de preferências vazio e clica em buscar.</li>
+                <li>O sistema exibe automaticamente os restaurantes mais populares e bem avaliados da região atual.</li>
+            </ol>
+
+            <h3>Exceções:</h3>
+            <ol>
+                <li>[Passo 4a] O serviço de I.A ou banco de dados encontra-se offline.</li>
+                <li>O sistema interrompe a busca e exibe a mensagem de erro "Serviço indisponível no momento, tente novamente mais tarde".</li>
+            </ol>
+
+            <button id="btn-simular" onclick="simularFluxo()">Simular Teste do Caso de Uso (JS)</button>
+            <div id="resultado-teste" class="resultado-caixa"></div>
+        </section>
+
+        <!-- UC02 -->
+        <section class="card-uc">
+            <span class="status-badge" id="status-uc02">Em Elaboração</span>
+            <h2>UC02: Login/Autenticação</h2>
+
+            <table>
+                <tr>
+                    <th>Ator Principal</th>
+                    <td>Usuário</td>
+                </tr>
+                <tr>
+                    <th>Pré-condições</th>
+                    <td>Possuir cadastro prévio no sistema</td>
+                </tr>
+                <tr>
+                    <th>Pós-condições</th>
+                    <td>Usuário logado e com acesso às funcionalidades restritas</td>
+                </tr>
+            </table>
+
+            <h3>Fluxo Principal de Ações:</h3>
+            <ol>
+                <li>O usuário acessa a página de login.</li>
+                <li>O usuário insere seu e-mail e senha.</li>
+                <li>O usuário clica no botão "Entrar".</li>
+                <li>O sistema valida as credenciais informadas.</li>
+                <li>O sistema redireciona o usuário para a página inicial logada.</li>
+            </ol>
+
+            <h3>Fluxo Alternativo:</h3>
+            <ol>
+                <li>[Passo 2a] O usuário esqueceu sua senha e clica em "Esqueci minha senha".</li>
+                <li>O sistema redireciona o usuário para o fluxo de redefinição de credenciais.</li>
+            </ol>
+
+            <h3>Exceções:</h3>
+            <ol>
+                <li>[Passo 4a] O sistema verifica que a senha informada está incorreta.</li>
+                <li>O sistema exibe a mensagem "E-mail ou senha incorretos" e solicita nova tentativa.</li>
+            </ol>
+
+            <button id="btn-simular-uc02" onclick="simularFluxoUC02()">Simular Teste do Caso de Uso (JS)</button>
+            <div id="resultado-teste-uc02" class="resultado-caixa"></div>
+        </section>
+    </main>
+
+    <script>
+        function simularFluxo() {
+            let elementoResultado = document.getElementById("resultado-teste");
+            let badge = document.getElementById("status");
+
+            elementoResultado.style.backgroundColor = "#d1fae5";
+            elementoResultado.style.color = "#065f46";
+            elementoResultado.innerText = "Teste UC01 concluído: Busca de restaurantes simulada com sucesso!";
+
+            badge.innerText = "Testado e Aprovado";
+            badge.style.backgroundColor = "#10b981"; 
+        }
+
+        function simularFluxoUC02() {
+            let elementoResultado = document.getElementById("resultado-teste-uc02");
+            let badge = document.getElementById("status-uc02");
+
+            elementoResultado.style.backgroundColor = "#d1fae5";
+            elementoResultado.style.color = "#065f46";
+            elementoResultado.innerText = "Teste UC02 concluído: Autenticação simulada com sucesso!";
+
+            badge.innerText = "Testado e Aprovado";
+            badge.style.backgroundColor = "#10b981"; 
+        }
+    </script>
+
+</body>
+</html>
