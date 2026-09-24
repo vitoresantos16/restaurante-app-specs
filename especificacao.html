@@ -11,196 +11,245 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
         body {
-            background-color: #f1f5f9;
+            background-color: #f1f5f9; 
             color: #1e293b;
             padding: 20px;
         }
-
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
         header {
             background-color: #0f172a;
             color: #ffffff;
-            padding: 20px;
+            padding: 24px 20px;
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             text-align: center;
         }
-
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 6px;
+        }
+        header p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
         .card-uc {
             background: #ffffff;
             border-left: 6px solid #2563eb;
-            padding: 20px;
+            padding: 24px;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 24px;
+            position: relative;
         }
-
         .card-uc h2 {
             color: #1d4ed8;
-            margin-bottom: 10px;
+            margin-top: 8px;
+            margin-bottom: 12px;
+            font-size: 1.4rem;
         }
-
+        .tabela-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
+            min-width: 320px;
         }
-
         th, td {
             border: 1px solid #cbd5e1;
-            padding: 10px;
+            padding: 10px 12px;
             text-align: left;
+            font-size: 0.95rem;
         }
-
         th {
             background-color: #f8fafc;
             color: #334155;
             width: 30%;
+            font-weight: 600;
         }
-
-        h3 {
-            margin-top: 15px;
-            margin-bottom: 10px;
-            color: #334155;
+        .fluxo-titulo {
+            font-size: 1.05rem;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            padding-left: 10px;
+            border-left: 4px solid transparent;
         }
-
+        .fluxo-principal {
+            color: #1e40af;
+            border-left-color: #2563eb;
+        }
+        .fluxo-alternativo {
+            color: #b45309;
+            border-left-color: #f59e0b;
+        }
+        .fluxo-excecao {
+            color: #b91c1c;
+            border-left-color: #ef4444;
+        }
         ol {
-            margin-left: 20px;
+            margin-left: 24px;
             line-height: 1.8;
+            color: #334155;
+            font-size: 0.95rem;
         }
-
         .status-badge {
             display: inline-block;
-            background-color: #f59e0b; /* Amarelo: Em Desenvolvimento */
-            color: white;
-            padding: 4px 8px;
+            background-color: #f59e0b; 
+            color: #ffffff;
+            padding: 4px 10px;
             border-radius: 4px;
             font-size: 12px;
             font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
+        .status-badge.aprovado {
+            background-color: #10b981; 
+        }
         button {
             background-color: #2563eb;
-            color: white;
+            color: #ffffff;
             border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
+            padding: 10px 18px;
+            border-radius: 6px;
             cursor: pointer;
-            margin-top: 15px;
-            font-weight: bold;
+            margin-top: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.2s ease, transform 0.1s ease;
         }
-
         button:hover {
             background-color: #1d4ed8;
         }
-
+        button:active {
+            transform: scale(0.98);
+        }
         .resultado-caixa {
-            margin-top: 10px;
-            padding: 10px;
-            border-radius: 4px;
-            font-weight: bold;
+            margin-top: 12px;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: none; 
+            transition: all 0.3s ease;
+        }
+        .resultado-caixa.ativo {
+            display: block;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Recomendação de Restaurantes por I.A</h1>
-        <p>Documentação de Engenharia de Software - Especificação de Casos de Uso</p>
-    </header>
+    <div class="container">
+        <header>
+            <h1>Recomendação de Restaurantes por I.A</h1>
+            <p>Documentação de Engenharia de Software - Especificação de Casos de Uso</p>
+        </header>
 
-    <main>
-        <!-- UC01 -->
-        <section class="card-uc">
-            <span class="status-badge" id="status">Em Elaboração</span>
-            <h2>UC01: Procurar estabelecimento</h2>
+        <main>
+            <!-- UC01 -->
+            <section class="card-uc">
+                <span class="status-badge" id="status">Em Elaboração</span>
+                <h2>UC01: Procurar estabelecimento</h2>
 
-            <table>
-                <tr>
-                    <th>Ator Principal</th>
-                    <td>Usuário</td>
-                </tr>
-                <tr>
-                    <th>Pré-condições</th>
-                    <td>Ter informado suas preferências</td>
-                </tr>
-                <tr>
-                    <th>Pós-condições</th>
-                    <td>Mostra restaurantes compatíveis às preferências pessoais ao usuário</td>
-                </tr>
-            </table>
+                <div class="tabela-container">
+                    <table>
+                        <tr>
+                            <th>Ator Principal</th>
+                            <td>Usuário</td>
+                        </tr>
+                        <tr>
+                            <th>Pré-condições</th>
+                            <td>Ter informado suas preferências</td>
+                        </tr>
+                        <tr>
+                            <th>Pós-condições</th>
+                            <td>Mostra restaurantes compatíveis às preferências pessoais ao usuário</td>
+                        </tr>
+                    </table>
+                </div>
 
-            <h3>Fluxo Principal de Ações:</h3>
-            <ol>
-                <li>O usuário acessa a funcionalidade de buscar estabelecimento.</li>
-                <li>O sistema apresenta o formulário solicitando o tipo de comida desejada.</li>
-                <li>O usuário preenche os campos e informa suas preferências à I.A.</li>
-                <li>O sistema valida os dados e envia para processamento.</li>
-                <li>O sistema lista os restaurantes compatíveis com o perfil.</li>
-            </ol>
+                <h3 class="fluxo-titulo fluxo-principal">Fluxo Principal de Ações:</h3>
+                <ol>
+                    <li>O usuário acessa a funcionalidade de buscar estabelecimento.</li>
+                    <li>O sistema apresenta o formulário solicitando o tipo de comida desejada.</li>
+                    <li>O usuário preenche os campos e informa suas preferências à I.A.</li>
+                    <li>O sistema valida os dados e envia para processamento.</li>
+                    <li>O sistema lista os restaurantes compatíveis com o perfil.</li>
+                </ol>
 
-            <h3>Fluxo Alternativo:</h3>
-            <ol>
-                <li>[Passo 3a] O usuário deixa o campo de preferências vazio e clica em buscar.</li>
-                <li>O sistema exibe automaticamente os restaurantes mais populares e bem avaliados da região atual.</li>
-            </ol>
+                <h3 class="fluxo-titulo fluxo-alternativo">Fluxo Alternativo:</h3>
+                <ol>
+                    <li>[Passo 3a] O usuário deixa o campo de preferências vazio e clica em buscar.</li>
+                    <li>O sistema exibe automaticamente os restaurantes mais populares e bem avaliados da região atual.</li>
+                </ol>
 
-            <h3>Exceções:</h3>
-            <ol>
-                <li>[Passo 4a] O serviço de I.A ou banco de dados encontra-se offline.</li>
-                <li>O sistema interrompe a busca e exibe a mensagem de erro "Serviço indisponível no momento, tente novamente mais tarde".</li>
-            </ol>
+                <h3 class="fluxo-titulo fluxo-excecao">Exceções:</h3>
+                <ol>
+                    <li>[Passo 4a] O serviço de I.A ou banco de dados encontra-se offline.</li>
+                    <li>O sistema interrompe a busca e exibe a mensagem de erro "Serviço indisponível no momento, tente novamente mais tarde".</li>
+                </ol>
 
-            <button id="btn-simular" onclick="simularFluxo()">Simular Teste do Caso de Uso (JS)</button>
-            <div id="resultado-teste" class="resultado-caixa"></div>
-        </section>
+                <button id="btn-simular" onclick="simularFluxo()">Simular Teste do Caso de Uso (JS)</button>
+                <div id="resultado-teste" class="resultado-caixa"></div>
+            </section>
 
-        <!-- UC02 -->
-        <section class="card-uc">
-            <span class="status-badge" id="status-uc02">Em Elaboração</span>
-            <h2>UC02: Login/Autenticação</h2>
+            <!-- UC02 -->
+            <section class="card-uc">
+                <span class="status-badge" id="status-uc02">Em Elaboração</span>
+                <h2>UC02: Login/Autenticação</h2>
 
-            <table>
-                <tr>
-                    <th>Ator Principal</th>
-                    <td>Usuário</td>
-                </tr>
-                <tr>
-                    <th>Pré-condições</th>
-                    <td>Possuir cadastro prévio no sistema</td>
-                </tr>
-                <tr>
-                    <th>Pós-condições</th>
-                    <td>Usuário logado e com acesso às funcionalidades restritas</td>
-                </tr>
-            </table>
+                <div class="tabela-container">
+                    <table>
+                        <tr>
+                            <th>Ator Principal</th>
+                            <td>Usuário</td>
+                        </tr>
+                        <tr>
+                            <th>Pré-condições</th>
+                            <td>Possuir cadastro prévio no sistema</td>
+                        </tr>
+                        <tr>
+                            <th>Pós-condições</th>
+                            <td>Usuário logado e com acesso às funcionalidades restritas</td>
+                        </tr>
+                    </table>
+                </div>
 
-            <h3>Fluxo Principal de Ações:</h3>
-            <ol>
-                <li>O usuário acessa a página de login.</li>
-                <li>O usuário insere seu e-mail e senha.</li>
-                <li>O usuário clica no botão "Entrar".</li>
-                <li>O sistema valida as credenciais informadas.</li>
-                <li>O sistema redireciona o usuário para a página inicial logada.</li>
-            </ol>
+                <h3 class="fluxo-titulo fluxo-principal">Fluxo Principal de Ações:</h3>
+                <ol>
+                    <li>O usuário acessa a página de login.</li>
+                    <li>O usuário insere seu e-mail e senha.</li>
+                    <li>O usuário clica no botão "Entrar".</li>
+                    <li>O sistema valida as credenciais informadas.</li>
+                    <li>O sistema redireciona o usuário para a página inicial logada.</li>
+                </ol>
 
-            <h3>Fluxo Alternativo:</h3>
-            <ol>
-                <li>[Passo 2a] O usuário esqueceu sua senha e clica em "Esqueci minha senha".</li>
-                <li>O sistema redireciona o usuário para o fluxo de redefinição de credenciais.</li>
-            </ol>
+                <h3 class="fluxo-titulo fluxo-alternativo">Fluxo Alternativo:</h3>
+                <ol>
+                    <li>[Passo 2a] O usuário esqueceu sua senha e clica em "Esqueci minha senha".</li>
+                    <li>O sistema redireciona o usuário para o fluxo de redefinição de credenciais.</li>
+                </ol>
 
-            <h3>Exceções:</h3>
-            <ol>
-                <li>[Passo 4a] O sistema verifica que a senha informada está incorreta.</li>
-                <li>O sistema exibe a mensagem "E-mail ou senha incorretos" e solicita nova tentativa.</li>
-            </ol>
+                <h3 class="fluxo-titulo fluxo-excecao">Exceções:</h3>
+                <ol>
+                    <li>[Passo 4a] O sistema verifica que a senha informada está incorreta.</li>
+                    <li>O sistema exibe a mensagem "E-mail ou senha incorretos" e solicita nova tentativa.</li>
+                </ol>
 
-            <button id="btn-simular-uc02" onclick="simularFluxoUC02()">Simular Teste do Caso de Uso (JS)</button>
-            <div id="resultado-teste-uc02" class="resultado-caixa"></div>
-        </section>
-    </main>
+                <button id="btn-simular-uc02" onclick="simularFluxoUC02()">Simular Teste do Caso de Uso (JS)</button>
+                <div id="resultado-teste-uc02" class="resultado-caixa"></div>
+            </section>
+        </main>
+    </div>
 
     <script>
         function simularFluxo() {
@@ -209,9 +258,12 @@
 
             elementoResultado.style.backgroundColor = "#d1fae5";
             elementoResultado.style.color = "#065f46";
+            elementoResultado.style.border = "1px solid #a7f3d0";
             elementoResultado.innerText = "Teste UC01 concluído: Busca de restaurantes simulada com sucesso!";
+            elementoResultado.classList.add("ativo");
 
             badge.innerText = "Testado e Aprovado";
+            badge.classList.add("aprovado");
             badge.style.backgroundColor = "#10b981"; 
         }
 
@@ -221,9 +273,12 @@
 
             elementoResultado.style.backgroundColor = "#d1fae5";
             elementoResultado.style.color = "#065f46";
+            elementoResultado.style.border = "1px solid #a7f3d0";
             elementoResultado.innerText = "Teste UC02 concluído: Autenticação simulada com sucesso!";
+            elementoResultado.classList.add("ativo");
 
             badge.innerText = "Testado e Aprovado";
+            badge.classList.add("aprovado");
             badge.style.backgroundColor = "#10b981"; 
         }
     </script>
